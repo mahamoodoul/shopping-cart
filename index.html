@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input  type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button class="btn btn-default"><i id="minusCover" class="fas fa-minus "></i></button>
+                           <input id="coverPhone"  type="text" class="form-control text-center" value="1">
+                           <button class="btn btn-default"><i id="plusCover" class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="coverPhonePrice">59</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -148,6 +148,85 @@
       document.getElementById("total").innerText=priceTotalNewMinus;
 
       })
+
+
+      const plusCover =document.getElementById("plusCover");
+      plusCover.addEventListener("click", function(){
+
+         const coverPhone=document.getElementById("coverPhone").value;
+
+         const coverPhoneValue=parseFloat(coverPhone);
+         const currentNumberValue=coverPhoneValue+1;
+
+         const coverPhonePrice=document.getElementById("coverPhonePrice").innerText;
+
+         const coverPhoneNum=parseFloat(coverPhonePrice);
+         const coverPhoneNumUpdatePrice=coverPhoneNum+59;
+
+         document.getElementById("coverPhone").value=currentNumberValue;
+         document.getElementById("coverPhonePrice").innerText=coverPhoneNumUpdatePrice;
+
+
+        const subTotalCover=document.getElementById("subTotal").innerText;
+        const totalCover=document.getElementById("total").innerText;
+        subAndTotalCal(subTotalCover,totalCover);
+      })
+
+      function subAndTotalCal(subTotalCover,totalCover){
+       
+       const subTotalNumPlusCover=parseInt(subTotalCover)+59;
+
+       const priceTotalNewPlusCover=parseInt(totalCover)+59;
+
+       document.getElementById("subTotal").innerText=subTotalNumPlusCover;
+       document.getElementById("total").innerText=priceTotalNewPlusCover;
+
+  }
+
+
+
+
+      const minusCover =document.getElementById("minusCover");
+      minusCover.addEventListener("click", function(){
+ 
+         const coverPhoneMinus=document.getElementById("coverPhone").value;
+
+         const coverPhoneValueMinus=parseFloat(coverPhoneMinus);
+         const currentNumberValueMinus=coverPhoneValueMinus-1;
+
+         const coverPhonePriceMinus=document.getElementById("coverPhonePrice").innerText;
+
+         const coverPhoneNumMinus=parseFloat(coverPhonePriceMinus);
+         const coverPhoneNumUpdatePriceMinus=coverPhoneNumMinus+59;
+
+         document.getElementById("coverPhone").value=currentNumberValueMinus;
+         document.getElementById("coverPhonePrice").innerText=coverPhoneNumUpdatePriceMinus;
+
+
+        const subTotalCoverMinus=document.getElementById("subTotal").innerText;
+        const totalCoverMinus=document.getElementById("total").innerText;
+        subAndTotalCalMinus(subTotalCoverMinus,totalCoverMinus);
+      })
+
+
+
+      function subAndTotalCalMinus(subTotalCoverMinus,totalCoverMinus){
+       
+       const subTotalNumPlusCoverMinus=parseInt(subTotalCoverMinus)-59;
+
+       const priceTotalNewPlusCoverMinus=parseInt(totalCoverMinus)-59;
+
+       document.getElementById("subTotal").innerText=subTotalNumPlusCoverMinus;
+       document.getElementById("total").innerText=priceTotalNewPlusCoverMinus;
+
+  }
+
+
+     
+
+     
+
+      
       
 
 
